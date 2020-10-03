@@ -6,11 +6,11 @@
 
 {% block bodyblock %}
   <!-- Hero Section-->
-  <section style="background: url({% static 'img/hero.jpg' %}); background-size: cover; background-position: center center" class="hero">
+  <section style="background: url({% static 'img/hero-bg.jpg' %}); background-size: cover; background-position: center center" class="hero">
     <div class="container">
       <div class="row">
         <div class="col-lg-7">
-          <h1>BlogProject Homepage - Welcome to my Blog!</h1>
+          <h1>Welcome to this Blog</h1>
         </div>
       </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
     </div>
@@ -20,8 +20,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <h2 class="h3">Some great intro here</h2>
-          <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+          <h2 class="h3"><strong>Introduction</strong></h2>
+          <p class="text-big"><strong>This is my first django project to learn layout and srtructure of django framework, this project completed by following youtube tutorial<strong></p>
         </div>
       </div>
     </div>
@@ -62,23 +62,14 @@
       {% endfor %}
     </div>
   </section>
-  
-  <!-- Divider Section-->
-  <section style="background: url({% static 'img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="#" class="hero-link">View More</a>
-        </div>
-      </div>
-    </div>
-  </section>
+
   <!-- Latest Posts -->
   <section class="latest-posts"> 
+  <div style="background: url({% static 'img/road.jpeg' %}); background-size: cover; background-position: center bottom"  class="divider">
     <div class="container">
       <header> 
-        <h2>Latest from the blog</h2>
-        <p class="text-big">Read Your Latest Blogs Here.</p>
+        <h2 style="color:white">Latest from the blog</h2>
+        <p style="color:white" class="text-big">Read Your Latest Blogs Here.</p>
       </header>
       <div class="row">
         {% for post in latest %}
@@ -87,15 +78,16 @@
           <div class="post-details">
             <div class="post-meta d-flex justify-content-between">
               <div class="date">{{ post.timestamp }}</div>
-              <div class="category">{% for cat in post.categories.all %}<a href="#">{{ cat }}</a>{% endfor %}</div>
+              <div class="category" style="color:black" >{% for cat in post.categories.all %}<a href="#">{{ cat }}</a>{% endfor %}</div>
             </div><a href="post.html">
-              <h3 class="h4">{{ post.title }}</h3></a>
-            <p class="text-muted">{{ post.overview }}</p>
+              <h3 class="h4" style="color:white" >{{ post.title }}</h3></a>
+            <p style="color:white" class="text-muted" >{{ post.overview }}</p>
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
+  </div>
   </section>
   <!-- Newsletter Section-->
   <section class="newsletter no-padding-top">    
@@ -103,7 +95,7 @@
       <div class="row">
         <div class="col-md-6">
           <h2>Subscribe to Newsletter</h2>
-          <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="text-big">Fill in the email for upcoming blogs</p>
         </div>
         <div class="col-md-8">
           <div class="form-holder">

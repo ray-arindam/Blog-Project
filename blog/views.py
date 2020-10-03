@@ -33,10 +33,12 @@ def get_category_count():
 def index(request):
     featured = Post.objects.filter(featured=True)
     latest = Post.objects.order_by('-timestamp')[0:3]
+    
     if request.method == "POST":
         email = request.POST['email']
         new_signup = Signup(email=email)
         new_signup.save()
+
 
     context = {
         'object_list':featured,
@@ -48,7 +50,7 @@ def blog(request):
     most_recent = Post.objects.order_by('-timestamp')[0:3]
     category_count = get_category_count()
     post_list = Post.objects.all()
-    paginator = Paginator(post_list,2)
+    paginator = Paginator(post_list,4)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
 
@@ -73,7 +75,7 @@ def post(request,id):
     category_count = get_category_count()   
     post = get_object_or_404(Post,id=id)
 
-    PostView.objects.get_or_create(user=request.user,post=post)
+    #PostView.objects.get_or_create(user=request.user,post=post)
 
     form = CommentForm(request.POST or None)
     if request.method == "POST":
